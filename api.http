@@ -1,0 +1,61 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkNpbmVtYXJrIiwiZW1haWwiOiJjaW5lQHRlc3QuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE1VDIyOjEwOjU3Ljk5N1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE1VDIyOjEwOjU3Ljk5N1oiLCJpYXQiOjE3MTg0ODk0NjksImV4cCI6MTcxODQ5OTQ2OX0.dIFWR-LsM5FO69gKhDDCVG5l2JLIF2U-aipjTW0IHyY
+
+## Usuario comum
+POST http://localhost:3000/users 
+content-type: application/json
+
+{
+    "name": "John",
+    "email": "john@test.com",
+    "password": "123456"
+}
+
+
+### Usuario partner
+POST http://localhost:3000/partners/users 
+content-type: application/json
+
+{
+    "name": "Cinemark",
+    "email": "cine@test.com",
+    "password": "123456"
+}
+
+### Login
+POST http://localhost:3000/auth/login
+content-type: application/json
+
+{
+   "email": "cine@test.com",
+   "password": "123456"
+}
+
+### Create partners
+POST http://localhost:3000/partners
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+   "name": "partner2"
+}
+
+### List partners
+GET http://localhost:3000/partners
+content-type: application/json
+Authorization: Bearer {{token}}
+
+### Create event
+POST http://localhost:3000/events
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Evento 1",
+    "description": "Esta é a descrição do evento 1",
+    "date": "2024-06-15T18:00:00.00"
+}
+
+### List events
+GET http://localhost:3000/events
+content-type: application/json
+Authorization: Bearer {{token}}
